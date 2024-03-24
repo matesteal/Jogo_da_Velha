@@ -15,3 +15,10 @@ def checar_vencedor(linhas, jogador):
     if all(linhas[i] == jogador for i in range(1, 10, 4)) or all(linhas[i] == jogador for i in range(3, 8, 2)):
         return True
     return False
+
+def resultados(J1, Pont, J2, Tab):
+    tabuleiro_str = formato_velha(Tab)
+    
+    with open('resultados.txt', 'w') as resultados:
+        resultados.write(f"{J1} ({Pont[0]}) X {J2} ({Pont[1]})\n")
+        resultados.write(tabuleiro_str)
