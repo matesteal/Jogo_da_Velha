@@ -1,6 +1,5 @@
 import Functions as fc
 import time
-import sys
 
 jogadorX = input("Nome do jogador que será o X: ")
 jogadorO = input("Nome do jogador que será o O: ")
