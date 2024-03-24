@@ -43,6 +43,5 @@ while True:
         continue
     else:
         time.sleep(0.25)
-        print(f"{jogadorX} ({pont_jog[0]}) X {jogadorO} ({pont_jog[1]})")
-        fc.formato_velha(tabuleiro)
+        fc.resultados(jogadorX, pont_jog, jogadorO, tabuleiro)
         break
