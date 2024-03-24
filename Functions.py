@@ -1,9 +1,9 @@
-import time
-
 def formato_velha(linha):
     print(f"{linha[1]} | {linha[2]} | {linha[3]}")
     print(f"{linha[4]} | {linha[5]} | {linha[6]}")
     print(f"{linha[7]} | {linha[8]} | {linha[9]}")
+    
+    return f"{linha[1]} | {linha[2]} | {linha[3]}\n{linha[4]} | {linha[5]} | {linha[6]}\n{linha[7]} | {linha[8]} | {linha[9]}\n"
 
 def checar_vencedor(linhas, jogador):
     for i in range(1, 9, 3):
@@ -17,8 +17,12 @@ def checar_vencedor(linhas, jogador):
     return False
 
 def resultados(J1, Pont, J2, Tab):
-    tabuleiro_str = formato_velha(Tab)
+    print(f"{J1} ({Pont[0]}) X {J2} ({Pont[1]})")
+    tabuleiro_str = str(formato_velha(Tab))
     
-    with open('resultados.txt', 'w') as resultados:
+    with open('resultados.txt', 'a') as resultados:
         resultados.write(f"{J1} ({Pont[0]}) X {J2} ({Pont[1]})\n")
         resultados.write(tabuleiro_str)
+
+def limpar():
+    open('resultados.txt', 'w')
