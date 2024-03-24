@@ -1,5 +1,5 @@
 # Jogo_da_Velha
-Desafio
+Desafio (cumprido)
 
 -Fazer o jogo da velha PvP em python
 
@@ -11,3 +11,8 @@ Desafio
 
 
 -Fazer o resultado ser printado no arquivo externo
+
+
+
+
+# Desafio Cumprido
