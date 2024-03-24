@@ -36,7 +36,7 @@ while True:
             pont_jog[jogador_atual] += 1
             break
         
-        if all(celula != " " for celula in tabuleiro):
+        if all(celula != " " for celula in tabuleiro[1:]):
             fc.formato_velha(tabuleiro)
             print("Empate!")
             break
