@@ -6,7 +6,6 @@ jogadorO = input("Nome do jogador que será o O: ")
 time.sleep(0.5)
 print("Bem vindos jogo,",jogadorX, "e", jogadorO)
 
-
 jogadores = [jogadorX, jogadorO]
 jogo = ['X','O']
 pont_jog = [0, 0]
@@ -47,4 +46,3 @@ while True:
         print(f"{jogadorX} ({pont_jog[0]}) X {jogadorO} ({pont_jog[1]})")
         fc.formato_velha(tabuleiro)
         break
-    
