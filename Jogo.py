@@ -1,5 +1,6 @@
 import Functions as fc
 import time
+import sys
 
 jogadorX = input("Nome do jogador que será o X: ")
 jogadorO = input("Nome do jogador que será o O: ")
@@ -43,6 +44,8 @@ while True:
         continue
     else:
         time.sleep(0.25)
-        print(f"{jogadorX} ({pont_jog[0]}) X {jogadorO} ({pont_jog[1]})")
-        fc.formato_velha(tabuleiro)
-        break
+        with open('Resultado.txt','w') as arquivo_salvo:
+            sys.stdout = arquivo_salvo
+            print(f"{jogadorX} ({pont_jog[0]}) X {jogadorO} ({pont_jog[1]})")
+            fc.formato_velha(tabuleiro)
+            break

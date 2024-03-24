@@ -15,3 +15,5 @@ def checar_vencedor(linhas, jogador):
     if all(linhas[i] == jogador for i in range(1, 10, 4)) or all(linhas[i] == jogador for i in range(3, 8, 2)):
         return True
     return False
+
+#FINALIZADO
