@@ -16,6 +16,7 @@ def checar_vencedor(linhas, jogador):
         return True
     return False
 
+
 def resultados(J1, Pont, J2, Tab):
     print(f"{J1} ({Pont[0]}) X {J2} ({Pont[1]})")
     tabuleiro_str = str(formato_velha(Tab))
