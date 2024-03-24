@@ -15,8 +15,12 @@ jogador_atual = 0
 while True:
     tabuleiro = [" "]*10
     while True:
-        fc.formato_velha(tabuleiro)
-        posicao = int(input(f"Jogador(a) {jogadores[jogador_atual]}-{jogo[jogador_atual]}, escolha uma posição de 1 a 9: "))
+        try:
+            fc.formato_velha(tabuleiro)
+            posicao = int(input(f"Jogador(a) {jogadores[jogador_atual]}-{jogo[jogador_atual]}, escolha uma posição de 1 a 9: "))
+        except ValueError:
+            print("Use apenas numeros inteiros")
+            continue
         time.sleep(0.5)
 
         if tabuleiro[posicao] != " ":        
@@ -38,14 +42,17 @@ while True:
             break
         
         jogador_atual = (jogador_atual + 1) % 2
+    time.sleep(0.25)
+    fc.resultados(jogadorX, pont_jog, jogadorO, tabuleiro)
+    
+    limpar_arquivo = input("Deseja limpar o arquivo de texto(S/N)? ") 
+    if limpar_arquivo == 'S':
+        fc.limpar()
+    
     again = input("Mais uma (S/N)? ")
     if again == 'S':
-        time.sleep(0.25)
         continue
+    
     else:
-        time.sleep(0.25)
-        with open('Resultado.txt','w') as arquivo_salvo:
-            sys.stdout = arquivo_salvo
-            print(f"{jogadorX} ({pont_jog[0]}) X {jogadorO} ({pont_jog[1]})")
-            fc.formato_velha(tabuleiro)
-            break
+        break
+        
