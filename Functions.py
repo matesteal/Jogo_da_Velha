@@ -1,4 +1,4 @@
-import math
+import time
 
 def formato_velha(linha):
     print(f"{linha[1]} | {linha[2]} | {linha[3]}")
@@ -15,29 +15,3 @@ def checar_vencedor(linhas, jogador):
     if all(linhas[i] == jogador for i in range(1, 10, 4)) or all(linhas[i] == jogador for i in range(3, 8, 2)):
         return True
     return False
-
-
-
-
-
-
-
-
-#Em testes
-def Media(): 
-    jogador1 = 0
-    jogador2 = 0
-    rodada = 0
-
-    while True:
-        rodadas = int(input("melhor de... "))
-        if rodadas % 2 != 0:
-            break
-        else:
-            print("Apenas valores Impares")
-    valor_dividido = rodadas / 2
-    valor_melhor_de = math.ceil(valor_dividido)
-
-    while jogador2 < valor_melhor_de and jogador1 < valor_melhor_de:
-        if rodada >= rodadas:
-            break

@@ -1,32 +1,50 @@
 import Functions as fc
 import time
 
-jogador1 = input("Nome do jogador 1: ")
-jogador2 = input("Nome do jogador 2: ")
+jogadorX = input("Nome do jogador que será o X: ")
+jogadorO = input("Nome do jogador que será o O: ")
 time.sleep(0.5)
-print("Bem vindos jogadores,",jogador1, "e", jogador2)
+print("Bem vindos jogo,",jogadorX, "e", jogadorO)
 
-tabuleiro = [" "]*10
-jogadores = [jogador1, jogador2]
+
+jogadores = [jogadorX, jogadorO]
+jogo = ['X','O']
+pont_jog = [0, 0]
 jogador_atual = 0
 
-fc.formato_velha(tabuleiro)
-posicao = int(input(f"Jogador(a) {jogadores[jogador_atual]}, escolha uma posição de 1 a 9: "))
-
 while True:
-    if tabuleiro[posicao] != "":        
-        print("Essa posição já está ocupada.")
+    tabuleiro = [" "]*10
+    while True:
+        fc.formato_velha(tabuleiro)
+        posicao = int(input(f"Jogador(a) {jogadores[jogador_atual]}-{jogo[jogador_atual]}, escolha uma posição de 1 a 9: "))
+        time.sleep(0.5)
+
+        if tabuleiro[posicao] != " ":        
+            print("Essa posição já está ocupada.")
+            time.sleep(0.1)
+            continue
+        
+        tabuleiro[posicao] = jogo[jogador_atual]
+        
+        if fc.checar_vencedor(tabuleiro, jogo[jogador_atual]):
+            fc.formato_velha(tabuleiro)
+            print(f"Jogador(a) {jogadores[jogador_atual]}-{jogo[jogador_atual]} venceu!")
+            pont_jog[jogador_atual] += 1
+            break
+        
+        if all(celula != " " for celula in tabuleiro):
+            fc.formato_velha(tabuleiro)
+            print("Empate!")
+            break
+        
+        jogador_atual = (jogador_atual + 1) % 2
+    again = input("Mais uma (S/N)? ")
+    if again == 'S':
+        time.sleep(0.25)
         continue
-    
-    tabuleiro[posicao] = jogadores[jogador_atual]
-    
-    if fc.checar_vencedor(tabuleiro, jogadores[jogador_atual]):
+    else:
+        time.sleep(0.25)
+        print(f"{jogadorX} ({pont_jog[0]}) X {jogadorO} ({pont_jog[1]})")
         fc.formato_velha(tabuleiro)
-        print(f"Jogador(a) {jogadores[jogador_atual]} venceu!")
-        break
-    if all(celula != " " for celula in tabuleiro):
-        fc.formato_velha(tabuleiro)
-        print("Empate!")
         break
     
-    jogador_atual = (jogador_atual + 1) % 2
