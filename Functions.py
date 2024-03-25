@@ -28,6 +28,7 @@ def resultados(J1, Pont, J2, Tab):
     with open('resultados.txt', 'a') as resultados:
         resultados.write(f"{J1} ({Pont[0]}) X {J2} ({Pont[1]})\n")
         resultados.write(tabuleiro_str)
+    print("Pontuação e tabuleiro salvo no arquivo!")
 
 #Função que limpa o arquivo secundário
 def limpar():
