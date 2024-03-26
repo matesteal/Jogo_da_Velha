@@ -5,14 +5,14 @@ import time
 jogadorX = input("Nome do jogador que será o X: ")
 jogadorO = input("Nome do jogador que será o O: ")
 time.sleep(0.5)
-print("Bem vindos jogo,",jogadorX, "e", jogadorO)
+print("Bem vindos ao jogo,",jogadorX, "e", jogadorO)
 
 jogadores = [jogadorX, jogadorO]
 jogo = ['X','O']
 pont_jog = [0, 0]
-jogador_atual = 0
 
 while True:
+    jogador_atual = 0
     tabuleiro = [" "]*10
     while True:
         try:
